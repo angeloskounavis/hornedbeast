@@ -81,3 +81,14 @@ start time: 6pm
 finish time: 9pm
 
 actual time needed: 3 hours
+
+Number and name of feature: 
+lab-03 number 3 (Gallery Of Horns)
+
+Estimated time needed: 4 hours
+
+start time: 4pm
+
+finish time: 7pm
+
+actual time needed: 3 hours

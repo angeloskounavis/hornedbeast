@@ -2,7 +2,8 @@ import React from 'react';
 import HornedBeast from './HornedBeast.js';
 // import Container from 'react-bootstrap/container';
 // import Row from 'react-bootstrap/row';
-import data from './data.json'
+
+
 
 class Main extends React.Component {
   
@@ -12,8 +13,9 @@ class Main extends React.Component {
     return (
       <>
         {
-          data.map((beast, idx) => (
+          this.props.beasts.map((beast, idx) => (
         <HornedBeast
+        openHandler = {() => this.props.openHandler(beast)}
         key = {idx}
           _id={beast.id}
           image_url={beast.image_url}
