@@ -37,3 +37,12 @@ div.card {
  height: 500px;
  width: 500px;
 }
+
+#modalimg {
+width: 100%;
+height: auto;
+}
+
+.modal {
+  width: 800px;
+}

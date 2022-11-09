@@ -36,6 +36,7 @@ class HornedBeast extends React.Component {
             <img
               src={this.props.image_url}
               alt={this.props.description}
+              onClick = {this.props.openHandler}
               // title={this.props.title}
             />
             {/* <p>{this.props.description}</p> */}
