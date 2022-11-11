@@ -7,6 +7,12 @@ import './App.css';
 import data from './data.json';
 import SelectedBeast from './SelectedBeast.js';
 
+
+
+
+// let data = [1,2,3,4,5,6,7,8,9,10];
+
+
 class App extends React.Component {
 
   constructor(props) {
@@ -31,6 +37,11 @@ class App extends React.Component {
   render() {
     return (
       <>
+        <Header />
+        <Main
+          beasts={this.state.beasts}
+          openHandler={this.openHandler}
+          />
         {
           this.state.selectedBeast &&
           <SelectedBeast
@@ -40,11 +51,6 @@ class App extends React.Component {
             // imageTag={this.state.imageTag}
           />
         }
-        <Header />
-        <Main
-          beasts={this.state.beasts}
-          openHandler={this.openHandler}
-        />
         <Footer />
       </>
     );

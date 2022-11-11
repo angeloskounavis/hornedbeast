@@ -92,3 +92,14 @@ start time: 4pm
 finish time: 7pm
 
 actual time needed: 3 hours
+
+Number and name of feature: 
+lab-04 number 4 (Gallery Of Horns)
+
+Estimated time needed: 4 hours
+
+start time: 4pm
+
+finish time: 8pm
+
+actual time needed: 4 hours
