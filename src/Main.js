@@ -1,36 +1,92 @@
 import React from 'react';
 import HornedBeast from './HornedBeast.js';
+import { Dropdown, Form, ListGroup } from 'react-bootstrap';
+// import hornedData from './data.json';
+
 // import Container from 'react-bootstrap/container';
 // import Row from 'react-bootstrap/row';
 
 
+// let data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 class Main extends React.Component {
-  
-  
-  
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      howToSort: '',
+      filterBeasts: []
+    }
+  }
+
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(event.target.value);
+    const numHorns = parseInt(event.target.value);
+    let gallery = this.props.beasts;
+    console.log(numHorns);
+    if (numHorns) {
+      gallery = this.props.beasts.filter(beast => 
+        beast.horns === numHorns
+      )
+
+    }
+
+    this.setState({
+      // name: event.target.name.value,
+      // howToSort: event.target.name.value,
+      filterBeasts: gallery
+    });
+console.log(this.state.filterBeasts);
+
+  }
+
+
   render() {
+
+    // let numbers = data.map((dataItem, idx) => {
+    //   return <DropdownGroup.Item key={idx}>{dataItem}</DropdownGroup.Item>
+
+    // })
+console.log(this.state.filterBeasts);
+
     return (
       <>
+        <Form>
+          <Form.Group>
+            <Form.Label htmlFor="filterOption">Number of Horns</Form.Label>
+            <Form.Select id="filterOption" name="selected" as="select" onChange={this.handleSubmit}>
+              <option value=" ">All Beasts</option>
+              <option value="1">Single Horn</option>
+              <option value="2">Double Horns</option>
+              <option value="3">Triple Horns</option>
+            </Form.Select>
+          </Form.Group>
+          {/* <button type="submit">Submit</button> */}
+          {/* <button type="submit">Submit</button> */}
+        </Form>
         {
-          this.props.beasts.map((beast, idx) => (
-        <HornedBeast
-        openHandler = {() => this.props.openHandler(beast)}
-        key = {idx}
-          _id={beast.id}
-          image_url={beast.image_url}
-          title={beast.title}
-          description={beast.description}
-          keyword={beast.keyword}
-          horns={beast.horns}
-          className = 'unicorn'
-        />
-        ))
-      }
+          this.state.filterBeasts.map((beast, idx) => (
+            <HornedBeast
+              openHandler={() => this.props.openHandler(beast)}
+              key={idx}
+              _id={beast.id}
+              image_url={beast.image_url}
+              title={beast.title}
+              description={beast.description}
+              keyword={beast.keyword}
+              horns={beast.horns}
+              className='unicorn'
+            />
+
+          ))
+        }
+
 
       </>
     )
-  
+
   }
 }
 
